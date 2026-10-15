@@ -22,7 +22,7 @@ var SHEET_SETTINGS = 'Настройки';
 var COLUMNS = [["received_at", "Получено"], ["updated_at", "Обновлено"], ["group_code", "Код группы"], ["course", "Курс"], ["group", "Группа"], ["fullName", "ФИО студента"], ["iin", "ИИН"], ["gender", "Пол"], ["foreign", "Иностранный гражданин"], ["country", "Страна гражданства"], ["passport", "Паспорт"], ["birthDate", "Дата рождения"], ["nationality", "Национальность"], ["nationality__other", "Национальность — уточнение"], ["fatherName", "Отец"], ["motherName", "Мать"], ["guardianName", "Опекун / попечитель"], ["fatherEducation", "Образование отца"], ["fatherEducation__other", "Образование отца — уточнение"], ["motherEducation", "Образование матери"], ["motherEducation__other", "Образование матери — уточнение"], ["fatherWorkplace", "Место работы отца"], ["motherWorkplace", "Место работы матери"], ["guardianWorkplace", "Место работы опекуна"], ["address", "Адрес проживания"], ["residenceLocality", "Место проживания"], ["housingType", "Тип жилья"], ["housingType__other", "Тип жилья — уточнение"], ["motherPhone", "Телефон матери"], ["fatherPhone", "Телефон отца"], ["phone", "Телефон студента"], ["familyType", "Состав семьи"], ["incompleteReason", "Наличие родителей"], ["livesWith", "Проживает с (отчим / мачеха / сожитель родителя)"], ["childrenCount", "Количество детей в семье"], ["childBirthOrder", "Которым по счёту ребёнком является"], ["childrenAdult", "Из них совершеннолетних"], ["childrenSchoolAge", "Из них школьного возраста"], ["childrenPreschool", "Из них дошкольного возраста"], ["socialCategories", "Социальные категории"], ["attentionChildrenReasons", "Основания повышенного внимания"], ["studentCategories", "Категории обучающихся"], ["governmentServices", "Получатель госуслуг"], ["filledBy", "Кто заполнил"], ["comment", "Комментарий родителя"], ["consent", "Согласие на обработку ПД"], ["status", "Статус"], ["status_at", "Дата статуса"], ["bz_username", "Логин студента (Balazhan)"], ["bz_student_id", "ID студента (Balazhan)"], ["message", "Сообщение обработчика"], ["dup_count", "Повторных отправок"], ["last_dup_at", "Последняя повторная отправка"], ["submission_id", "ID заявки"]];
 var GROUPS = {"T110": {"code": "T110", "course": 1, "courseLabel": "1 курс", "group": "Т110", "title": "1 курс · Т110"}, "PO306": {"code": "PO306", "course": 3, "courseLabel": "3 курс", "group": "ПО306", "title": "3 курс · ПО306"}};
 var WORKER_EDITABLE = ['status', 'status_at', 'bz_username', 'bz_student_id', 'message'];
-var LOCKED_STATUSES = ['created', 'duplicate', 'processing'];
+var LOCKED_STATUSES = ['created', 'duplicate', 'processing', 'test', 'skip'];
 
 function doGet(e) {
   return json_({ ok: true, service: 'balazhan-anketa', time: now_() });
@@ -44,6 +44,8 @@ function doPost(e) {
     if (action === 'claim') return json_(claim_(body.row, body.key));
     if (action === 'update') return json_(update_(body.row, body.key, body.fields || {}));
     if (action === 'ping') return json_({ ok: true, columns: COLUMNS.length });
+    if (action === 'heartbeat') return json_(heartbeat_(body.hb || {}));
+    if (action === 'status') return json_(status_());
     return json_({ ok: false, error: 'unknown_action' });
   } catch (err) {
     return json_({ ok: false, error: String(err && err.message || err) });
@@ -218,6 +220,70 @@ function update_(row, key, fields) {
   } finally {
     lock.releaseLock();
   }
+}
+
+// ---------------------------------------------------------------- heartbeat / monitoring
+// Пульс обработчика пишется в лист «Настройки» (строки HB_*), чтобы было видно, жив ли он и действует ли вход в Balazhan.
+var HB_KEYS = {
+  last_seen: ['HB_LAST_SEEN', 'Последний цикл обработчика'],
+  session: ['HB_SESSION', 'Сессия Balazhan: ok / expired / error'],
+  session_ends_in: ['HB_SESSION_ENDS_IN_SEC', 'Сколько секунд осталось до конца сессии (на момент цикла)'],
+  session_ends_at: ['HB_SESSION_ENDS_AT', 'Когда закончится сессия (оценка)'],
+  user: ['HB_USER', 'Кто вошёл в Balazhan'],
+  last_result: ['HB_LAST_RESULT', 'Итог последнего цикла'],
+  last_error: ['HB_LAST_ERROR', 'Последняя ошибка'],
+  last_error_at: ['HB_LAST_ERROR_AT', 'Когда была последняя ошибка'],
+  agent: ['HB_AGENT', 'Где работает обработчик']
+};
+
+function settingsSheet_() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  return ss.getSheetByName(SHEET_SETTINGS) || ss.insertSheet(SHEET_SETTINGS);
+}
+
+function heartbeat_(hb) {
+  var lock = LockService.getScriptLock();
+  lock.waitLock(30000);
+  try {
+    var st = settingsSheet_();
+    var last = Math.max(st.getLastRow(), 1);
+    var data = st.getRange(1, 1, last, 1).getDisplayValues();
+    var rowOf = {};
+    data.forEach(function (r, i) { rowOf[r[0]] = i + 1; });
+    var ts = now_();
+    var vals = { last_seen: ts };
+    Object.keys(HB_KEYS).forEach(function (k) { if (hb[k] !== undefined && k !== 'last_seen') vals[k] = String(hb[k]).slice(0, 500); });
+    if (hb.session_ends_in !== undefined && hb.session_ends_in !== '') {
+      vals.session_ends_at = Utilities.formatDate(new Date(Date.now() + Number(hb.session_ends_in) * 1000), 'Asia/Almaty', 'yyyy-MM-dd HH:mm');
+    }
+    if (hb.last_error) vals.last_error_at = ts;
+    Object.keys(vals).forEach(function (k) {
+      var name = HB_KEYS[k][0];
+      var r = rowOf[name];
+      if (!r) { r = st.getLastRow() + 1; rowOf[name] = r; st.getRange(r, 1, 1, 3).setValues([[name, '', HB_KEYS[k][1]]]); }
+      var cell = st.getRange(r, 2);
+      cell.setNumberFormat('@');
+      cell.setValue(vals[k]);
+    });
+    return { ok: true };
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+function status_() {
+  var st = settingsSheet_();
+  var kv = {};
+  var data = st.getRange(1, 1, Math.max(st.getLastRow(), 1), 2).getDisplayValues();
+  data.forEach(function (r) { if (/^HB_/.test(r[0])) kv[r[0]] = r[1]; });
+  var all = list_(['*']).rows;
+  var counts = {};
+  var errors = [];
+  all.forEach(function (r) {
+    counts[r.status] = (counts[r.status] || 0) + 1;
+    if (r.status === 'error' || r.status === 'processing') errors.push({ row: r._row, fullName: r.fullName, group: r.group_code, status: r.status, status_at: r.status_at, message: r.message });
+  });
+  return { ok: true, now: now_(), heartbeat: kv, counts: counts, total: all.length, problems: errors };
 }
 
 // ---------------------------------------------------------------- helpers
