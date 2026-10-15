@@ -1,0 +1,1939 @@
+{
+ "version": 17,
+ "groups": {
+  "T110": {
+   "code": "T110",
+   "course": 1,
+   "courseLabel": "1 курс",
+   "group": "Т110",
+   "title": "1 курс · Т110"
+  },
+  "PO306": {
+   "code": "PO306",
+   "course": 3,
+   "courseLabel": "3 курс",
+   "group": "ПО306",
+   "title": "3 курс · ПО306"
+  }
+ },
+ "sections": [
+  {
+   "title": "Сведения о родителях",
+   "fields": [
+    {
+     "key": "nationality",
+     "type": "single",
+     "label": "Национальность",
+     "siteLabel": "Национальность",
+     "required": true,
+     "help": "",
+     "header": "Национальность",
+     "options": [
+      {
+       "value": "kazakh",
+       "label": "Казах",
+       "other": false
+      },
+      {
+       "value": "other",
+       "label": "Другая национальность",
+       "other": true
+      }
+     ],
+     "suggestions": [
+      "Русский",
+      "Узбек",
+      "Украинец",
+      "Уйгур",
+      "Немец",
+      "Татарин",
+      "Азербайджанец",
+      "Кореец",
+      "Турок",
+      "Дунганин",
+      "Белорус",
+      "Таджик",
+      "Курд",
+      "Поляк",
+      "Кыргыз",
+      "Чеченец",
+      "Ингуш",
+      "Башкир",
+      "Армянин"
+     ]
+    },
+    {
+     "key": "fatherName",
+     "type": "text",
+     "label": "Отец (ФИО)",
+     "siteLabel": "Отец",
+     "required": false,
+     "help": "",
+     "header": "Отец",
+     "placeholder": "Фамилия Имя Отчество"
+    },
+    {
+     "key": "motherName",
+     "type": "text",
+     "label": "Мать (ФИО)",
+     "siteLabel": "Мать",
+     "required": false,
+     "help": "",
+     "header": "Мать",
+     "placeholder": "Фамилия Имя Отчество"
+    },
+    {
+     "key": "guardianName",
+     "type": "text",
+     "label": "Опекун / попечитель (ФИО)",
+     "siteLabel": "Опекун / попечитель",
+     "required": false,
+     "help": "",
+     "header": "Опекун / попечитель",
+     "placeholder": "Если есть опекун"
+    },
+    {
+     "key": "fatherEducation",
+     "type": "single",
+     "label": "Образование отца",
+     "siteLabel": "Образование отца",
+     "required": false,
+     "help": "",
+     "header": "Образование отца",
+     "options": [
+      {
+       "value": "higher",
+       "label": "Высшее, послевузовское",
+       "other": false
+      },
+      {
+       "value": "vocational",
+       "label": "Техническое и профессиональное",
+       "other": false
+      },
+      {
+       "value": "secondary",
+       "label": "Среднее",
+       "other": false
+      },
+      {
+       "value": "other",
+       "label": "Другое",
+       "other": true
+      }
+     ]
+    },
+    {
+     "key": "motherEducation",
+     "type": "single",
+     "label": "Образование матери",
+     "siteLabel": "Образование матери",
+     "required": false,
+     "help": "",
+     "header": "Образование матери",
+     "options": [
+      {
+       "value": "higher",
+       "label": "Высшее, послевузовское",
+       "other": false
+      },
+      {
+       "value": "vocational",
+       "label": "Техническое и профессиональное",
+       "other": false
+      },
+      {
+       "value": "secondary",
+       "label": "Среднее",
+       "other": false
+      },
+      {
+       "value": "other",
+       "label": "Другое",
+       "other": true
+      }
+     ]
+    },
+    {
+     "key": "fatherWorkplace",
+     "type": "text",
+     "label": "Место работы отца",
+     "siteLabel": "Место работы отца",
+     "required": false,
+     "help": "",
+     "header": "Место работы отца",
+     "placeholder": "Организация, должность (или «не работает»)"
+    },
+    {
+     "key": "motherWorkplace",
+     "type": "text",
+     "label": "Место работы матери",
+     "siteLabel": "Место работы матери",
+     "required": false,
+     "help": "",
+     "header": "Место работы матери",
+     "placeholder": "Организация, должность (или «не работает»)"
+    },
+    {
+     "key": "guardianWorkplace",
+     "type": "text",
+     "label": "Место работы опекуна",
+     "siteLabel": "Место работы опекуна",
+     "required": false,
+     "help": "",
+     "header": "Место работы опекуна",
+     "placeholder": "Если есть опекун"
+    },
+    {
+     "key": "address",
+     "type": "text",
+     "label": "Адрес проживания",
+     "siteLabel": "Адрес проживания",
+     "required": true,
+     "help": "",
+     "header": "Адрес проживания",
+     "placeholder": "Город, улица, дом, квартира"
+    },
+    {
+     "key": "residenceLocality",
+     "type": "single",
+     "label": "Место проживания",
+     "siteLabel": "Место проживания",
+     "required": true,
+     "help": "",
+     "header": "Место проживания",
+     "options": [
+      {
+       "value": "city",
+       "label": "Город",
+       "other": false
+      },
+      {
+       "value": "village",
+       "label": "Село",
+       "other": false
+      }
+     ]
+    },
+    {
+     "key": "housingType",
+     "type": "single",
+     "label": "Тип жилья",
+     "siteLabel": "Тип жилья",
+     "required": true,
+     "help": "",
+     "header": "Тип жилья",
+     "options": [
+      {
+       "value": "apartment",
+       "label": "Квартира",
+       "other": false
+      },
+      {
+       "value": "house",
+       "label": "Частный дом",
+       "other": false
+      },
+      {
+       "value": "dormitory",
+       "label": "Общежитие",
+       "other": false
+      },
+      {
+       "value": "other",
+       "label": "Другое",
+       "other": true
+      }
+     ]
+    },
+    {
+     "key": "motherPhone",
+     "type": "phone",
+     "label": "Телефон матери",
+     "siteLabel": "Телефон матери",
+     "required": false,
+     "help": "Формат: +7 7XX XXX XX XX. Нужен хотя бы один телефон родителя.",
+     "header": "Телефон матери"
+    },
+    {
+     "key": "fatherPhone",
+     "type": "phone",
+     "label": "Телефон отца",
+     "siteLabel": "Телефон отца",
+     "required": false,
+     "help": "Формат: +7 7XX XXX XX XX",
+     "header": "Телефон отца"
+    },
+    {
+     "key": "phone",
+     "type": "phone",
+     "label": "Телефон студента",
+     "siteLabel": "Телефон",
+     "required": false,
+     "help": "Формат: +7 7XX XXX XX XX (если есть)",
+     "header": "Телефон студента"
+    }
+   ]
+  },
+  {
+   "title": "Состав семьи",
+   "fields": [
+    {
+     "key": "familyType",
+     "type": "single",
+     "label": "Состав семьи",
+     "siteLabel": "Состав семьи",
+     "required": true,
+     "help": "",
+     "header": "Состав семьи",
+     "options": [
+      {
+       "value": "full",
+       "label": "Полная семья",
+       "other": false
+      },
+      {
+       "value": "incomplete",
+       "label": "Неполная семья",
+       "other": false
+      }
+     ]
+    },
+    {
+     "key": "incompleteReason",
+     "type": "multiple",
+     "label": "Наличие родителей",
+     "siteLabel": "Наличие родителей",
+     "required": false,
+     "help": "",
+     "header": "Наличие родителей",
+     "options": [
+      {
+       "value": "father_deceased",
+       "label": "Папа умер",
+       "other": false
+      },
+      {
+       "value": "mother_deceased",
+       "label": "Мама умерла",
+       "other": false
+      },
+      {
+       "value": "divorced",
+       "label": "Родители в разводе",
+       "other": false
+      },
+      {
+       "value": "out_of_wedlock",
+       "label": "Форма 4",
+       "other": false
+      }
+     ],
+     "showIf": {
+      "value": "incomplete",
+      "questionKey": "familyType"
+     },
+     "exclusive": [
+      [
+       "father_deceased",
+       "mother_deceased"
+      ]
+     ]
+    },
+    {
+     "key": "livesWith",
+     "type": "multiple",
+     "label": "Проживает с отчимом / мачехой / с сожителем / сожительницей родителя",
+     "siteLabel": "Проживает с отчимом / мачехой / с сожителем / сожительницей родителя",
+     "required": false,
+     "help": "",
+     "header": "Проживает с (отчим / мачеха / сожитель родителя)",
+     "options": [
+      {
+       "value": "stepfather",
+       "label": "Проживает с отчимом",
+       "other": false
+      },
+      {
+       "value": "stepmother",
+       "label": "Проживает с мачехой",
+       "other": false
+      },
+      {
+       "value": "parent_partner",
+       "label": "Проживает с сожителем/сожительницей родителя",
+       "other": false
+      }
+     ]
+    },
+    {
+     "key": "childrenCount",
+     "type": "number",
+     "label": "Количество детей в семье",
+     "siteLabel": "Количество детей в семье",
+     "required": true,
+     "help": "Включая самого студента.",
+     "header": "Количество детей в семье"
+    },
+    {
+     "key": "childBirthOrder",
+     "type": "number",
+     "label": "Которым по счету ребенком является обучающийся",
+     "siteLabel": "Которым по счету ребенком является обучающийся",
+     "required": true,
+     "help": "",
+     "header": "Которым по счёту ребёнком является",
+     "showIf": {
+      "questionKey": "childrenCount"
+     }
+    },
+    {
+     "key": "childrenAdult",
+     "type": "number",
+     "label": "Из них совершеннолетних",
+     "siteLabel": "Из них совершеннолетних",
+     "required": true,
+     "help": "Сумма трёх полей ниже должна равняться общему числу детей.",
+     "header": "Из них совершеннолетних",
+     "showIf": {
+      "questionKey": "childrenCount"
+     }
+    },
+    {
+     "key": "childrenSchoolAge",
+     "type": "number",
+     "label": "Из них школьного возраста",
+     "siteLabel": "Из них школьного возраста",
+     "required": true,
+     "help": "",
+     "header": "Из них школьного возраста",
+     "showIf": {
+      "questionKey": "childrenCount"
+     }
+    },
+    {
+     "key": "childrenPreschool",
+     "type": "number",
+     "label": "Из них дошкольного возраста",
+     "siteLabel": "Из них дошкольного возраста",
+     "required": true,
+     "help": "",
+     "header": "Из них дошкольного возраста",
+     "showIf": {
+      "questionKey": "childrenCount"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Социальные категории",
+   "fields": [
+    {
+     "key": "socialCategories",
+     "type": "multiple",
+     "label": "Социальные категории",
+     "siteLabel": "Социальные категории",
+     "required": false,
+     "help": "Отметьте все подходящие. Если ничего не подходит — оставьте пустым.",
+     "header": "Социальные категории",
+     "options": [
+      {
+       "value": "large_family",
+       "label": "Многодетная семья",
+       "other": false
+      },
+      {
+       "value": "orphan_child",
+       "label": "Ребенок-сирота",
+       "other": false
+      },
+      {
+       "value": "no_parental_care",
+       "label": "Ребенок, оставшийся без попечения родителей",
+       "other": false
+      },
+      {
+       "value": "patronage",
+       "label": "На патронатном воспитании",
+       "other": false
+      },
+      {
+       "value": "disability_children",
+       "label": "Дети с инвалидностью",
+       "other": false
+      },
+      {
+       "value": "special_education_needs",
+       "label": "Дети с особыми образовательными потребностями",
+       "other": false
+      },
+      {
+       "value": "power_of_attorney",
+       "label": "Проживает у родственников по доверенности",
+       "other": false
+      },
+      {
+       "value": "rented_housing",
+       "label": "Проживает в съемном жилье",
+       "other": false
+      },
+      {
+       "value": "civil_marriage_parents",
+       "label": "Дети, родители которых проживают в гражданском браке",
+       "other": false
+      },
+      {
+       "value": "stateless_student",
+       "label": "Учащиеся, не имеющие гражданства",
+       "other": false
+      },
+      {
+       "value": "foreign_citizen_student",
+       "label": "Учащиеся-граждане другого государства",
+       "other": false
+      },
+      {
+       "value": "juvenile_department_register",
+       "label": "Состоит на учете в отделе по делам несовершеннолетних",
+       "other": false
+      },
+      {
+       "value": "low_income_family",
+       "label": "Малообеспеченные",
+       "other": false
+      },
+      {
+       "value": "police_registered_family",
+       "label": "Семьи, состоящие на учете в органах полиции (неблагополучие)",
+       "other": false
+      },
+      {
+       "value": "attention_children",
+       "label": "Дети, требующие повышенного педагогического внимания",
+       "other": false
+      },
+      {
+       "value": "guardianship",
+       "label": "Под опекой",
+       "other": false
+      },
+      {
+       "value": "foster_family",
+       "label": "Приёмная семья",
+       "other": false
+      },
+      {
+       "value": "health_limitations",
+       "label": "ОВЗ — ограниченные возможности здоровья",
+       "other": false
+      },
+      {
+       "value": "home_education",
+       "label": "Обучение на дому",
+       "other": false
+      }
+     ]
+    },
+    {
+     "key": "attentionChildrenReasons",
+     "type": "multiple",
+     "label": "Основания повышенного педагогического внимания",
+     "siteLabel": "Основания повышенного педагогического внимания",
+     "required": false,
+     "help": "",
+     "header": "Основания повышенного внимания",
+     "options": [
+      {
+       "value": "attention_academic_underachievement",
+       "label": "не успевающие по учебным предметам",
+       "other": false
+      },
+      {
+       "value": "attention_neglect_wandering_begging",
+       "label": "безнадзорные, беспризорные, занимающиеся бродяжничеством, попрошайничеством",
+       "other": false
+      },
+      {
+       "value": "attention_school_rules_violations",
+       "label": "грубо или неоднократно нарушающие устав и (или) правила внутреннего распорядка организации образования",
+       "other": false
+      },
+      {
+       "value": "attention_absenteeism_four_days",
+       "label": "систематически пропускающие занятия без уважительной причины четыре дня и более в течение одного месяца",
+       "other": false
+      },
+      {
+       "value": "attention_offense",
+       "label": "совершившие административное и (или) уголовное правонарушение",
+       "other": false
+      },
+      {
+       "value": "attention_substances_vapes_tobacco",
+       "label": "употребляющие алкогольные, энергетические напитки, психоактивные вещества, электронные системы потребления (вейпы), табачные изделия",
+       "other": false
+      },
+      {
+       "value": "attention_gambling",
+       "label": "страдающие игроманией (лудомания)",
+       "other": false
+      },
+      {
+       "value": "attention_pregnancy",
+       "label": "беременные",
+       "other": false
+      },
+      {
+       "value": "attention_violence_bullying_victim_witness",
+       "label": "подвергшиеся или ставшие свидетелями насилия, буллинга",
+       "other": false
+      },
+      {
+       "value": "attention_violence_bullying_perpetrator",
+       "label": "совершившие насилие, буллинг",
+       "other": false
+      },
+      {
+       "value": "attention_special_org_graduates",
+       "label": "выпускники специальных организаций образования",
+       "other": false
+      },
+      {
+       "value": "attention_antisocial_behavior",
+       "label": "совершившие антиобщественное поведение",
+       "other": false
+      },
+      {
+       "value": "attention_psych_social_risk_group",
+       "label": "находящиеся в группе риска у педагогов-психологов и социальных педагогов организаций среднего образования и организаций, реализующих образовательные программы технического и профессионального образования, в том числе несовершеннолетние, сообщившие о насилии и жестоком обращении, с суицидальными намерениями и фактами совершения попыток суицида",
+       "other": false
+      },
+      {
+       "value": "attention_juvenile_commission_cases",
+       "label": "дела которых рассмотрены на заседаниях комиссии по делам несовершеннолетних и защите их прав",
+       "other": false
+      },
+      {
+       "value": "attention_former_orphan_org_rights_violation",
+       "label": "ранее находившиеся в организациях образования для детей-сирот и детей, оставшихся без попечения родителей, в связи с нарушением их прав (в том числе вследствие насилия и жестокого обращения)",
+       "other": false
+      }
+     ],
+     "showIf": {
+      "value": "attention_children",
+      "questionKey": "socialCategories"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Относится к следующим категориям обучающихся и воспитанников",
+   "fields": [
+    {
+     "key": "studentCategories",
+     "type": "multiple",
+     "label": "Относится к следующим категориям обучающихся и воспитанников",
+     "siteLabel": "Относится к следующим категориям обучающихся и воспитанников",
+     "required": true,
+     "help": "Отметьте подходящее. Если не относится — последний пункт.",
+     "header": "Категории обучающихся",
+     "options": [
+      {
+       "value": "student_category_targeted_social_aid",
+       "label": "дети из семей, имеющих право на получение государственной адресной социальной помощи",
+       "other": false
+      },
+      {
+       "value": "student_category_low_income",
+       "label": "дети из семей, не получающих государственную адресную социальную помощь, в которых среднедушевой доход ниже величины прожиточного минимума",
+       "other": false
+      },
+      {
+       "value": "student_category_orphans_in_family",
+       "label": "дети-сироты и дети, оставшиеся без попечения родителей, проживающие в семьях",
+       "other": false
+      },
+      {
+       "value": "student_category_emergency",
+       "label": "дети из семей, нуждающихся в экстренной помощи вследствие чрезвычайных ситуаций",
+       "other": false
+      },
+      {
+       "value": "student_category_collegial",
+       "label": "иные категории обучающихся и воспитанников, определяемые коллегиальным органом организации образования",
+       "other": false
+      },
+      {
+       "value": "student_category_none",
+       "label": "обучающиеся и воспитанники, не относящиеся к категориям, указанным в других пунктах настоящего перечня",
+       "other": false
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Относится к получателям следующих государственных услуг",
+   "fields": [
+    {
+     "key": "governmentServices",
+     "type": "multiple",
+     "label": "Относится к получателям следующих государственных услуг",
+     "siteLabel": "Относится к получателям следующих государственных услуг",
+     "required": true,
+     "help": "Если не получаете — последний пункт.",
+     "header": "Получатель госуслуг",
+     "options": [
+      {
+       "value": "service_transport",
+       "label": "предоставление бесплатного подвоза к общеобразовательным организациям и обратно домой детям, проживающим в отдаленных сельских населенных пунктах",
+       "other": false
+      },
+      {
+       "value": "service_meals_primary",
+       "label": "Предоставление бесплатного питания (1–4 классы)",
+       "other": false
+      },
+      {
+       "value": "service_meals",
+       "label": "Предоставление бесплатного и льготного питания отдельным категориям обучающихся и воспитанников в общеобразовательных школах (5–12 классы)",
+       "other": false
+      },
+      {
+       "value": "service_camps",
+       "label": "прием документов и выдача направлений на предоставление отдыха в загородных и пришкольных лагерях отдельным категориям обучающихся и воспитанников государственных организаций образования",
+       "other": false
+      },
+      {
+       "value": "service_material_help",
+       "label": "оказание финансовой и материальной помощи обучающимся и воспитанникам организаций образования",
+       "other": false
+      },
+      {
+       "value": "service_other_material_help",
+       "label": "оказывается иная материальная помощь",
+       "other": false
+      },
+      {
+       "value": "service_none",
+       "label": "Не относится к получателям государственных услуг указанных выше.",
+       "other": false
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "columns": [
+  {
+   "key": "received_at",
+   "header": "Получено"
+  },
+  {
+   "key": "updated_at",
+   "header": "Обновлено"
+  },
+  {
+   "key": "group_code",
+   "header": "Код группы"
+  },
+  {
+   "key": "course",
+   "header": "Курс"
+  },
+  {
+   "key": "group",
+   "header": "Группа"
+  },
+  {
+   "key": "fullName",
+   "header": "ФИО студента"
+  },
+  {
+   "key": "iin",
+   "header": "ИИН"
+  },
+  {
+   "key": "gender",
+   "header": "Пол"
+  },
+  {
+   "key": "foreign",
+   "header": "Иностранный гражданин"
+  },
+  {
+   "key": "country",
+   "header": "Страна гражданства"
+  },
+  {
+   "key": "passport",
+   "header": "Паспорт"
+  },
+  {
+   "key": "birthDate",
+   "header": "Дата рождения"
+  },
+  {
+   "key": "nationality",
+   "header": "Национальность"
+  },
+  {
+   "key": "nationality__other",
+   "header": "Национальность — уточнение"
+  },
+  {
+   "key": "fatherName",
+   "header": "Отец"
+  },
+  {
+   "key": "motherName",
+   "header": "Мать"
+  },
+  {
+   "key": "guardianName",
+   "header": "Опекун / попечитель"
+  },
+  {
+   "key": "fatherEducation",
+   "header": "Образование отца"
+  },
+  {
+   "key": "fatherEducation__other",
+   "header": "Образование отца — уточнение"
+  },
+  {
+   "key": "motherEducation",
+   "header": "Образование матери"
+  },
+  {
+   "key": "motherEducation__other",
+   "header": "Образование матери — уточнение"
+  },
+  {
+   "key": "fatherWorkplace",
+   "header": "Место работы отца"
+  },
+  {
+   "key": "motherWorkplace",
+   "header": "Место работы матери"
+  },
+  {
+   "key": "guardianWorkplace",
+   "header": "Место работы опекуна"
+  },
+  {
+   "key": "address",
+   "header": "Адрес проживания"
+  },
+  {
+   "key": "residenceLocality",
+   "header": "Место проживания"
+  },
+  {
+   "key": "housingType",
+   "header": "Тип жилья"
+  },
+  {
+   "key": "housingType__other",
+   "header": "Тип жилья — уточнение"
+  },
+  {
+   "key": "motherPhone",
+   "header": "Телефон матери"
+  },
+  {
+   "key": "fatherPhone",
+   "header": "Телефон отца"
+  },
+  {
+   "key": "phone",
+   "header": "Телефон студента"
+  },
+  {
+   "key": "familyType",
+   "header": "Состав семьи"
+  },
+  {
+   "key": "incompleteReason",
+   "header": "Наличие родителей"
+  },
+  {
+   "key": "livesWith",
+   "header": "Проживает с (отчим / мачеха / сожитель родителя)"
+  },
+  {
+   "key": "childrenCount",
+   "header": "Количество детей в семье"
+  },
+  {
+   "key": "childBirthOrder",
+   "header": "Которым по счёту ребёнком является"
+  },
+  {
+   "key": "childrenAdult",
+   "header": "Из них совершеннолетних"
+  },
+  {
+   "key": "childrenSchoolAge",
+   "header": "Из них школьного возраста"
+  },
+  {
+   "key": "childrenPreschool",
+   "header": "Из них дошкольного возраста"
+  },
+  {
+   "key": "socialCategories",
+   "header": "Социальные категории"
+  },
+  {
+   "key": "attentionChildrenReasons",
+   "header": "Основания повышенного внимания"
+  },
+  {
+   "key": "studentCategories",
+   "header": "Категории обучающихся"
+  },
+  {
+   "key": "governmentServices",
+   "header": "Получатель госуслуг"
+  },
+  {
+   "key": "filledBy",
+   "header": "Кто заполнил"
+  },
+  {
+   "key": "comment",
+   "header": "Комментарий родителя"
+  },
+  {
+   "key": "consent",
+   "header": "Согласие на обработку ПД"
+  },
+  {
+   "key": "status",
+   "header": "Статус"
+  },
+  {
+   "key": "status_at",
+   "header": "Дата статуса"
+  },
+  {
+   "key": "bz_username",
+   "header": "Логин студента (Balazhan)"
+  },
+  {
+   "key": "bz_student_id",
+   "header": "ID студента (Balazhan)"
+  },
+  {
+   "key": "message",
+   "header": "Сообщение обработчика"
+  },
+  {
+   "key": "dup_count",
+   "header": "Повторных отправок"
+  },
+  {
+   "key": "last_dup_at",
+   "header": "Последняя повторная отправка"
+  },
+  {
+   "key": "submission_id",
+   "header": "ID заявки"
+  }
+ ],
+ "countries": [
+  {
+   "code": "AU",
+   "name": "Австралия"
+  },
+  {
+   "code": "AT",
+   "name": "Австрия"
+  },
+  {
+   "code": "AZ",
+   "name": "Азербайджан"
+  },
+  {
+   "code": "AX",
+   "name": "Аландские о-ва"
+  },
+  {
+   "code": "AL",
+   "name": "Албания"
+  },
+  {
+   "code": "DZ",
+   "name": "Алжир"
+  },
+  {
+   "code": "AS",
+   "name": "Американское Самоа"
+  },
+  {
+   "code": "AI",
+   "name": "Ангилья"
+  },
+  {
+   "code": "AO",
+   "name": "Ангола"
+  },
+  {
+   "code": "AD",
+   "name": "Андорра"
+  },
+  {
+   "code": "AQ",
+   "name": "Антарктида"
+  },
+  {
+   "code": "AG",
+   "name": "Антигуа и Барбуда"
+  },
+  {
+   "code": "AR",
+   "name": "Аргентина"
+  },
+  {
+   "code": "AM",
+   "name": "Армения"
+  },
+  {
+   "code": "AW",
+   "name": "Аруба"
+  },
+  {
+   "code": "AF",
+   "name": "Афганистан"
+  },
+  {
+   "code": "BS",
+   "name": "Багамы"
+  },
+  {
+   "code": "BD",
+   "name": "Бангладеш"
+  },
+  {
+   "code": "BB",
+   "name": "Барбадос"
+  },
+  {
+   "code": "BH",
+   "name": "Бахрейн"
+  },
+  {
+   "code": "BY",
+   "name": "Беларусь"
+  },
+  {
+   "code": "BZ",
+   "name": "Белиз"
+  },
+  {
+   "code": "BE",
+   "name": "Бельгия"
+  },
+  {
+   "code": "BJ",
+   "name": "Бенин"
+  },
+  {
+   "code": "BM",
+   "name": "Бермудские о-ва"
+  },
+  {
+   "code": "BG",
+   "name": "Болгария"
+  },
+  {
+   "code": "BO",
+   "name": "Боливия"
+  },
+  {
+   "code": "BQ",
+   "name": "Бонэйр, Синт-Эстатиус и Саба"
+  },
+  {
+   "code": "BA",
+   "name": "Босния и Герцеговина"
+  },
+  {
+   "code": "BW",
+   "name": "Ботсвана"
+  },
+  {
+   "code": "BR",
+   "name": "Бразилия"
+  },
+  {
+   "code": "IO",
+   "name": "Британская территория в Индийском океане"
+  },
+  {
+   "code": "BN",
+   "name": "Бруней"
+  },
+  {
+   "code": "BF",
+   "name": "Буркина-Фасо"
+  },
+  {
+   "code": "BI",
+   "name": "Бурунди"
+  },
+  {
+   "code": "BT",
+   "name": "Бутан"
+  },
+  {
+   "code": "VU",
+   "name": "Вануату"
+  },
+  {
+   "code": "VA",
+   "name": "Ватикан"
+  },
+  {
+   "code": "GB",
+   "name": "Великобритания"
+  },
+  {
+   "code": "HU",
+   "name": "Венгрия"
+  },
+  {
+   "code": "VE",
+   "name": "Венесуэла"
+  },
+  {
+   "code": "VG",
+   "name": "Виргинские о-ва (Великобритания)"
+  },
+  {
+   "code": "VI",
+   "name": "Виргинские о-ва (США)"
+  },
+  {
+   "code": "UM",
+   "name": "Внешние малые о-ва (США)"
+  },
+  {
+   "code": "TL",
+   "name": "Восточный Тимор"
+  },
+  {
+   "code": "VN",
+   "name": "Вьетнам"
+  },
+  {
+   "code": "GA",
+   "name": "Габон"
+  },
+  {
+   "code": "HT",
+   "name": "Гаити"
+  },
+  {
+   "code": "GY",
+   "name": "Гайана"
+  },
+  {
+   "code": "GM",
+   "name": "Гамбия"
+  },
+  {
+   "code": "GH",
+   "name": "Гана"
+  },
+  {
+   "code": "GP",
+   "name": "Гваделупа"
+  },
+  {
+   "code": "GT",
+   "name": "Гватемала"
+  },
+  {
+   "code": "GN",
+   "name": "Гвинея"
+  },
+  {
+   "code": "GW",
+   "name": "Гвинея-Бисау"
+  },
+  {
+   "code": "DE",
+   "name": "Германия"
+  },
+  {
+   "code": "GG",
+   "name": "Гернси"
+  },
+  {
+   "code": "GI",
+   "name": "Гибралтар"
+  },
+  {
+   "code": "HN",
+   "name": "Гондурас"
+  },
+  {
+   "code": "HK",
+   "name": "Гонконг (САР)"
+  },
+  {
+   "code": "GD",
+   "name": "Гренада"
+  },
+  {
+   "code": "GL",
+   "name": "Гренландия"
+  },
+  {
+   "code": "GR",
+   "name": "Греция"
+  },
+  {
+   "code": "GE",
+   "name": "Грузия"
+  },
+  {
+   "code": "GU",
+   "name": "Гуам"
+  },
+  {
+   "code": "DK",
+   "name": "Дания"
+  },
+  {
+   "code": "JE",
+   "name": "Джерси"
+  },
+  {
+   "code": "DJ",
+   "name": "Джибути"
+  },
+  {
+   "code": "DM",
+   "name": "Доминика"
+  },
+  {
+   "code": "DO",
+   "name": "Доминиканская Республика"
+  },
+  {
+   "code": "EG",
+   "name": "Египет"
+  },
+  {
+   "code": "ZM",
+   "name": "Замбия"
+  },
+  {
+   "code": "EH",
+   "name": "Западная Сахара"
+  },
+  {
+   "code": "ZW",
+   "name": "Зимбабве"
+  },
+  {
+   "code": "IL",
+   "name": "Израиль"
+  },
+  {
+   "code": "IN",
+   "name": "Индия"
+  },
+  {
+   "code": "ID",
+   "name": "Индонезия"
+  },
+  {
+   "code": "JO",
+   "name": "Иордания"
+  },
+  {
+   "code": "IQ",
+   "name": "Ирак"
+  },
+  {
+   "code": "IR",
+   "name": "Иран"
+  },
+  {
+   "code": "IE",
+   "name": "Ирландия"
+  },
+  {
+   "code": "IS",
+   "name": "Исландия"
+  },
+  {
+   "code": "ES",
+   "name": "Испания"
+  },
+  {
+   "code": "IT",
+   "name": "Италия"
+  },
+  {
+   "code": "YE",
+   "name": "Йемен"
+  },
+  {
+   "code": "KP",
+   "name": "КНДР"
+  },
+  {
+   "code": "CV",
+   "name": "Кабо-Верде"
+  },
+  {
+   "code": "KH",
+   "name": "Камбоджа"
+  },
+  {
+   "code": "CM",
+   "name": "Камерун"
+  },
+  {
+   "code": "CA",
+   "name": "Канада"
+  },
+  {
+   "code": "QA",
+   "name": "Катар"
+  },
+  {
+   "code": "KE",
+   "name": "Кения"
+  },
+  {
+   "code": "CY",
+   "name": "Кипр"
+  },
+  {
+   "code": "KG",
+   "name": "Киргизия"
+  },
+  {
+   "code": "KI",
+   "name": "Кирибати"
+  },
+  {
+   "code": "CN",
+   "name": "Китай"
+  },
+  {
+   "code": "CC",
+   "name": "Кокосовые о-ва"
+  },
+  {
+   "code": "CO",
+   "name": "Колумбия"
+  },
+  {
+   "code": "KM",
+   "name": "Коморы"
+  },
+  {
+   "code": "CG",
+   "name": "Конго - Браззавиль"
+  },
+  {
+   "code": "CD",
+   "name": "Конго - Киншаса"
+  },
+  {
+   "code": "CR",
+   "name": "Коста-Рика"
+  },
+  {
+   "code": "CI",
+   "name": "Кот-д’Ивуар"
+  },
+  {
+   "code": "CU",
+   "name": "Куба"
+  },
+  {
+   "code": "KW",
+   "name": "Кувейт"
+  },
+  {
+   "code": "CW",
+   "name": "Кюрасао"
+  },
+  {
+   "code": "LA",
+   "name": "Лаос"
+  },
+  {
+   "code": "LV",
+   "name": "Латвия"
+  },
+  {
+   "code": "LS",
+   "name": "Лесото"
+  },
+  {
+   "code": "LR",
+   "name": "Либерия"
+  },
+  {
+   "code": "LB",
+   "name": "Ливан"
+  },
+  {
+   "code": "LY",
+   "name": "Ливия"
+  },
+  {
+   "code": "LT",
+   "name": "Литва"
+  },
+  {
+   "code": "LI",
+   "name": "Лихтенштейн"
+  },
+  {
+   "code": "LU",
+   "name": "Люксембург"
+  },
+  {
+   "code": "MU",
+   "name": "Маврикий"
+  },
+  {
+   "code": "MR",
+   "name": "Мавритания"
+  },
+  {
+   "code": "MG",
+   "name": "Мадагаскар"
+  },
+  {
+   "code": "YT",
+   "name": "Майотта"
+  },
+  {
+   "code": "MO",
+   "name": "Макао (САР)"
+  },
+  {
+   "code": "MW",
+   "name": "Малави"
+  },
+  {
+   "code": "MY",
+   "name": "Малайзия"
+  },
+  {
+   "code": "ML",
+   "name": "Мали"
+  },
+  {
+   "code": "MV",
+   "name": "Мальдивы"
+  },
+  {
+   "code": "MT",
+   "name": "Мальта"
+  },
+  {
+   "code": "MA",
+   "name": "Марокко"
+  },
+  {
+   "code": "MQ",
+   "name": "Мартиника"
+  },
+  {
+   "code": "MH",
+   "name": "Маршалловы о-ва"
+  },
+  {
+   "code": "MX",
+   "name": "Мексика"
+  },
+  {
+   "code": "MZ",
+   "name": "Мозамбик"
+  },
+  {
+   "code": "MD",
+   "name": "Молдова"
+  },
+  {
+   "code": "MC",
+   "name": "Монако"
+  },
+  {
+   "code": "MN",
+   "name": "Монголия"
+  },
+  {
+   "code": "MS",
+   "name": "Монтсеррат"
+  },
+  {
+   "code": "MM",
+   "name": "Мьянма (Бирма)"
+  },
+  {
+   "code": "NA",
+   "name": "Намибия"
+  },
+  {
+   "code": "NR",
+   "name": "Науру"
+  },
+  {
+   "code": "NP",
+   "name": "Непал"
+  },
+  {
+   "code": "NE",
+   "name": "Нигер"
+  },
+  {
+   "code": "NG",
+   "name": "Нигерия"
+  },
+  {
+   "code": "NL",
+   "name": "Нидерланды"
+  },
+  {
+   "code": "NI",
+   "name": "Никарагуа"
+  },
+  {
+   "code": "NU",
+   "name": "Ниуэ"
+  },
+  {
+   "code": "NZ",
+   "name": "Новая Зеландия"
+  },
+  {
+   "code": "NC",
+   "name": "Новая Каледония"
+  },
+  {
+   "code": "NO",
+   "name": "Норвегия"
+  },
+  {
+   "code": "AE",
+   "name": "ОАЭ"
+  },
+  {
+   "code": "OM",
+   "name": "Оман"
+  },
+  {
+   "code": "PK",
+   "name": "Пакистан"
+  },
+  {
+   "code": "PW",
+   "name": "Палау"
+  },
+  {
+   "code": "PS",
+   "name": "Палестинские территории"
+  },
+  {
+   "code": "PA",
+   "name": "Панама"
+  },
+  {
+   "code": "PG",
+   "name": "Папуа — Новая Гвинея"
+  },
+  {
+   "code": "PY",
+   "name": "Парагвай"
+  },
+  {
+   "code": "PE",
+   "name": "Перу"
+  },
+  {
+   "code": "PL",
+   "name": "Польша"
+  },
+  {
+   "code": "PT",
+   "name": "Португалия"
+  },
+  {
+   "code": "PR",
+   "name": "Пуэрто-Рико"
+  },
+  {
+   "code": "KR",
+   "name": "Республика Корея"
+  },
+  {
+   "code": "RE",
+   "name": "Реюньон"
+  },
+  {
+   "code": "RU",
+   "name": "Россия"
+  },
+  {
+   "code": "RW",
+   "name": "Руанда"
+  },
+  {
+   "code": "RO",
+   "name": "Румыния"
+  },
+  {
+   "code": "SV",
+   "name": "Сальвадор"
+  },
+  {
+   "code": "WS",
+   "name": "Самоа"
+  },
+  {
+   "code": "SM",
+   "name": "Сан-Марино"
+  },
+  {
+   "code": "ST",
+   "name": "Сан-Томе и Принсипи"
+  },
+  {
+   "code": "SA",
+   "name": "Саудовская Аравия"
+  },
+  {
+   "code": "MK",
+   "name": "Северная Македония"
+  },
+  {
+   "code": "MP",
+   "name": "Северные Марианские о-ва"
+  },
+  {
+   "code": "SC",
+   "name": "Сейшельские о-ва"
+  },
+  {
+   "code": "BL",
+   "name": "Сен-Бартелеми"
+  },
+  {
+   "code": "MF",
+   "name": "Сен-Мартен"
+  },
+  {
+   "code": "PM",
+   "name": "Сен-Пьер и Микелон"
+  },
+  {
+   "code": "SN",
+   "name": "Сенегал"
+  },
+  {
+   "code": "VC",
+   "name": "Сент-Винсент и Гренадины"
+  },
+  {
+   "code": "KN",
+   "name": "Сент-Китс и Невис"
+  },
+  {
+   "code": "LC",
+   "name": "Сент-Люсия"
+  },
+  {
+   "code": "RS",
+   "name": "Сербия"
+  },
+  {
+   "code": "SG",
+   "name": "Сингапур"
+  },
+  {
+   "code": "SX",
+   "name": "Синт-Мартен"
+  },
+  {
+   "code": "SY",
+   "name": "Сирия"
+  },
+  {
+   "code": "SK",
+   "name": "Словакия"
+  },
+  {
+   "code": "SI",
+   "name": "Словения"
+  },
+  {
+   "code": "US",
+   "name": "Соединенные Штаты"
+  },
+  {
+   "code": "SB",
+   "name": "Соломоновы о-ва"
+  },
+  {
+   "code": "SO",
+   "name": "Сомали"
+  },
+  {
+   "code": "SD",
+   "name": "Судан"
+  },
+  {
+   "code": "SR",
+   "name": "Суринам"
+  },
+  {
+   "code": "SL",
+   "name": "Сьерра-Леоне"
+  },
+  {
+   "code": "TJ",
+   "name": "Таджикистан"
+  },
+  {
+   "code": "TH",
+   "name": "Таиланд"
+  },
+  {
+   "code": "TW",
+   "name": "Тайвань"
+  },
+  {
+   "code": "TZ",
+   "name": "Танзания"
+  },
+  {
+   "code": "TG",
+   "name": "Того"
+  },
+  {
+   "code": "TK",
+   "name": "Токелау"
+  },
+  {
+   "code": "TO",
+   "name": "Тонга"
+  },
+  {
+   "code": "TT",
+   "name": "Тринидад и Тобаго"
+  },
+  {
+   "code": "TV",
+   "name": "Тувалу"
+  },
+  {
+   "code": "TN",
+   "name": "Тунис"
+  },
+  {
+   "code": "TM",
+   "name": "Туркменистан"
+  },
+  {
+   "code": "TR",
+   "name": "Турция"
+  },
+  {
+   "code": "TC",
+   "name": "Тёркс и Кайкос"
+  },
+  {
+   "code": "UG",
+   "name": "Уганда"
+  },
+  {
+   "code": "UZ",
+   "name": "Узбекистан"
+  },
+  {
+   "code": "UA",
+   "name": "Украина"
+  },
+  {
+   "code": "WF",
+   "name": "Уоллис и Футуна"
+  },
+  {
+   "code": "UY",
+   "name": "Уругвай"
+  },
+  {
+   "code": "FO",
+   "name": "Фарерские о-ва"
+  },
+  {
+   "code": "FM",
+   "name": "Федеративные Штаты Микронезии"
+  },
+  {
+   "code": "FJ",
+   "name": "Фиджи"
+  },
+  {
+   "code": "PH",
+   "name": "Филиппины"
+  },
+  {
+   "code": "FI",
+   "name": "Финляндия"
+  },
+  {
+   "code": "FK",
+   "name": "Фолклендские о-ва"
+  },
+  {
+   "code": "FR",
+   "name": "Франция"
+  },
+  {
+   "code": "GF",
+   "name": "Французская Гвиана"
+  },
+  {
+   "code": "PF",
+   "name": "Французская Полинезия"
+  },
+  {
+   "code": "TF",
+   "name": "Французские Южные территории"
+  },
+  {
+   "code": "HR",
+   "name": "Хорватия"
+  },
+  {
+   "code": "CF",
+   "name": "Центрально-Африканская Республика"
+  },
+  {
+   "code": "TD",
+   "name": "Чад"
+  },
+  {
+   "code": "ME",
+   "name": "Черногория"
+  },
+  {
+   "code": "CZ",
+   "name": "Чехия"
+  },
+  {
+   "code": "CL",
+   "name": "Чили"
+  },
+  {
+   "code": "CH",
+   "name": "Швейцария"
+  },
+  {
+   "code": "SE",
+   "name": "Швеция"
+  },
+  {
+   "code": "SJ",
+   "name": "Шпицберген и Ян-Майен"
+  },
+  {
+   "code": "LK",
+   "name": "Шри-Ланка"
+  },
+  {
+   "code": "EC",
+   "name": "Эквадор"
+  },
+  {
+   "code": "GQ",
+   "name": "Экваториальная Гвинея"
+  },
+  {
+   "code": "ER",
+   "name": "Эритрея"
+  },
+  {
+   "code": "SZ",
+   "name": "Эсватини"
+  },
+  {
+   "code": "EE",
+   "name": "Эстония"
+  },
+  {
+   "code": "ET",
+   "name": "Эфиопия"
+  },
+  {
+   "code": "GS",
+   "name": "Южная Георгия и Южные Сандвичевы о-ва"
+  },
+  {
+   "code": "ZA",
+   "name": "Южно-Африканская Республика"
+  },
+  {
+   "code": "SS",
+   "name": "Южный Судан"
+  },
+  {
+   "code": "JM",
+   "name": "Ямайка"
+  },
+  {
+   "code": "JP",
+   "name": "Япония"
+  },
+  {
+   "code": "BV",
+   "name": "о-в Буве"
+  },
+  {
+   "code": "IM",
+   "name": "о-в Мэн"
+  },
+  {
+   "code": "NF",
+   "name": "о-в Норфолк"
+  },
+  {
+   "code": "CX",
+   "name": "о-в Рождества"
+  },
+  {
+   "code": "SH",
+   "name": "о-в Св. Елены"
+  },
+  {
+   "code": "KY",
+   "name": "о-ва Кайман"
+  },
+  {
+   "code": "CK",
+   "name": "о-ва Кука"
+  },
+  {
+   "code": "PN",
+   "name": "о-ва Питкэрн"
+  },
+  {
+   "code": "HM",
+   "name": "о-ва Херд и Макдональд"
+  }
+ ]
+}

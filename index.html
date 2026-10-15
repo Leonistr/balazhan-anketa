@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2f6fed">
+<meta name="robots" content="noindex, nofollow">
+<title>Анкета студента для родителей</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+<link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="badge" id="groupBadge">Группа</div>
+    <h1>Анкета студента</h1>
+    <p id="intro">Анкету заполняет родитель (или опекун) студента.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="configWarning" class="notice warn" hidden>Форма ещё не подключена к таблице куратора. Отправка временно недоступна — попробуйте позже.</div>
+  <div id="groupError" class="notice error" hidden>Ссылка неполная: не указана группа. Попросите куратора прислать ссылку ещё раз.</div>
+
+  <form id="form" novalidate autocomplete="on" hidden>
+    <section class="card" data-section="student">
+      <h2>Студент</h2>
+      <div class="field" data-key="fullName">
+        <label for="f-fullName">ФИО студента <b class="req">*</b></label>
+        <input id="f-fullName" name="fullName" type="text" maxlength="200" autocomplete="off" placeholder="Фамилия Имя Отчество" required>
+        <div class="hint">Как в удостоверении личности.</div>
+      </div>
+      <div class="field" data-key="iin">
+        <label for="f-iin">ИИН студента <b class="req" id="iinReq">*</b></label>
+        <input id="f-iin" name="iin" type="text" inputmode="numeric" maxlength="12" autocomplete="off" placeholder="12 цифр">
+        <div class="hint" id="iinHint">12 цифр, указан в удостоверении личности студента.</div>
+      </div>
+      <div class="field" data-key="gender">
+        <span class="label">Пол <b class="req">*</b></span>
+        <div class="choices row">
+          <label class="choice"><input type="radio" name="gender" value="Мальчик"><span>Мальчик</span></label>
+          <label class="choice"><input type="radio" name="gender" value="Девочка"><span>Девочка</span></label>
+        </div>
+      </div>
+      <div class="field" data-key="foreign">
+        <label class="choice single"><input type="checkbox" id="f-foreign" name="foreign"><span>Иностранный гражданин</span></label>
+      </div>
+      <div id="foreignBlock" class="sub" hidden>
+        <div class="field" data-key="country">
+          <label for="f-country">Страна гражданства <b class="req">*</b></label>
+          <select id="f-country" name="country"><option value="">Не указано</option></select>
+        </div>
+        <div class="field" data-key="passport">
+          <label for="f-passport">Паспорт</label>
+          <input id="f-passport" name="passport" type="text" maxlength="64" autocomplete="off" placeholder="Номер паспорта">
+        </div>
+        <div class="field" data-key="birthDate">
+          <label for="f-birthDate">Дата рождения <b class="req">*</b></label>
+          <input id="f-birthDate" name="birthDate" type="date" min="1900-01-01">
+        </div>
+      </div>
+    </section>
+
+    <div id="dynamicSections"></div>
+
+    <section class="card" data-section="final">
+      <h2>Завершение</h2>
+      <div class="field" data-key="filledBy">
+        <span class="label">Кто заполняет анкету <b class="req">*</b></span>
+        <div class="choices row">
+          <label class="choice"><input type="radio" name="filledBy" value="Мать"><span>Мать</span></label>
+          <label class="choice"><input type="radio" name="filledBy" value="Отец"><span>Отец</span></label>
+          <label class="choice"><input type="radio" name="filledBy" value="Опекун"><span>Опекун</span></label>
+          <label class="choice"><input type="radio" name="filledBy" value="Другое"><span>Другое</span></label>
+        </div>
+      </div>
+      <div class="field" data-key="comment">
+        <label for="f-comment">Комментарий для куратора</label>
+        <textarea id="f-comment" name="comment" rows="3" maxlength="1000" placeholder="Необязательно"></textarea>
+      </div>
+      <div class="hp" aria-hidden="true"><label>Сайт<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div class="field" data-key="consent">
+        <label class="choice single consent"><input type="checkbox" name="consent" id="f-consent">
+          <span>Я даю согласие на сбор и обработку персональных данных студента и семьи в соответствии с Законом РК «О персональных данных и их защите». Данные передаются только куратору группы и вносятся в систему Balazhan (социальный паспорт студента).</span></label>
+      </div>
+      <div id="formErrors" class="notice error" hidden></div>
+      <button type="submit" id="submitBtn" class="btn">Отправить анкету</button>
+      <p class="small muted center">Ответы сохраняются на этом телефоне как черновик, пока вы не отправите анкету.</p>
+    </section>
+  </form>
+
+  <section id="done" class="card done" hidden>
+    <div class="done-icon">✓</div>
+    <h2>Спасибо! Анкета отправлена</h2>
+    <p id="doneText">Куратор получил ваши ответы. Повторно отправлять анкету не нужно.</p>
+    <p class="small muted">Если вы заметили ошибку, можно отправить анкету ещё раз с тем же ИИН — пока куратор её не обработал, данные обновятся. Если анкета уже обработана, сообщите куратору.</p>
+    <button type="button" id="againBtn" class="btn ghost">Заполнить анкету на другого студента</button>
+  </section>
+</main>
+<footer class="foot">Анкета для куратора группы · Balazhan</footer>
+
+<script src="js/config.js?v=1"></script>
+<script src="js/schema.js?v=1"></script>
+<script src="js/app.js?v=1"></script>
+</body>
+</html>
